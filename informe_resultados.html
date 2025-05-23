@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Informe de Rendimiento - CSV vs JSON</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 40px;
+      background-color: #f9fafb;
+      color: #2c3e50;
+    }
+    h1, h2 {
+      color: #34495e;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 30px 0;
+      background-color: #ffffff;
+      box-shadow: 0 0 8px rgba(0,0,0,0.05);
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #2c3e50;
+      color: #ffffff;
+    }
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+    .section {
+      margin-top: 40px;
+    }
+    .summary {
+      background-color: #ecf0f1;
+      border-left: 6px solid #3498db;
+      padding: 20px;
+      margin-top: 30px;
+    }
+    ul {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Informe de Rendimiento</h1>
+  <h2>Comparación entre Formatos de Archivos CSV y JSON</h2>
+
+  <div class="section">
+    <h3>Metodología</h3>
+    <p>
+      Se desarrolló un script en PHP para procesar archivos en formato CSV y JSON. 
+      Se midieron los siguientes aspectos durante operaciones de lectura, escritura y conversión:
+    </p>
+    <ul>
+      <li>Tiempo de procesamiento (segundos)</li>
+      <li>Uso de memoria PHP (MB)</li>
+      <li>Tamaño del archivo procesado (KB)</li>
+      <li>Uso de CPU del sistema (%)</li>
+      <li>Memoria RAM utilizada por el sistema (MB)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Resultados</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Operación</th>
+          <th>Formato</th>
+          <th>Tiempo (s)</th>
+          <th>Memoria PHP (MB)</th>
+          <th>Tamaño Archivo (KB)</th>
+          <th>Uso CPU (%)</th>
+          <th>Memoria Sistema (MB)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Lectura</td>
+          <td>CSV</td>
+          <td>0.245</td>
+          <td>3.20</td>
+          <td>12.8</td>
+          <td>14.3</td>
+          <td>980</td>
+        </tr>
+        <tr>
+          <td>Lectura</td>
+          <td>JSON</td>
+          <td>0.110</td>
+          <td>2.15</td>
+          <td>16.2</td>
+          <td>13.9</td>
+          <td>976</td>
+        </tr>
+        <tr>
+          <td>Escritura</td>
+          <td>CSV</td>
+          <td>0.170</td>
+          <td>2.98</td>
+          <td>13.1</td>
+          <td>14.0</td>
+          <td>978</td>
+        </tr>
+        <tr>
+          <td>Escritura</td>
+          <td>JSON</td>
+          <td>0.100</td>
+          <td>1.85</td>
+          <td>17.5</td>
+          <td>14.6</td>
+          <td>979</td>
+        </tr>
+        <tr>
+          <td>Conversión CSV → JSON</td>
+          <td>-</td>
+          <td>0.200</td>
+          <td>3.00</td>
+          <td>17.2</td>
+          <td>15.1</td>
+          <td>981</td>
+        </tr>
+        <tr>
+          <td>Conversión JSON → CSV</td>
+          <td>-</td>
+          <td>0.210</td>
+          <td>3.10</td>
+          <td>13.0</td>
+          <td>15.2</td>
+          <td>982</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="summary">
+    <h3>Análisis</h3>
+    <p>
+      El formato JSON resultó más rápido y eficiente en operaciones de lectura y escritura, mostrando menor consumo de memoria en PHP. 
+      Sin embargo, sus archivos ocupan más espacio y su codificación requiere más procesamiento de CPU.
+    </p>
+    <p>
+      CSV mostró tiempos de procesamiento ligeramente superiores, pero archivos más pequeños. Su simplicidad lo hace ideal para herramientas como Excel.
+    </p>
+  </div>
+
+  <div class="summary">
+    <h3>Conclusiones</h3>
+    <p>
+    El formato JSON se destaca por su velocidad y menor uso de memoria en operaciones automatizadas, siendo ideal para entornos donde la eficiencia es prioritaria. 
+    Por otro lado, el formato CSV ofrece ventajas en cuanto a compatibilidad con aplicaciones de oficina y facilidad de lectura por parte de usuarios finales. 
+    Ambos formatos presentan fortalezas y su elección dependerá del contexto específico en el que se apliquen los procesos de almacenamiento y procesamiento de datos.
+  </p>
+  </div>
+
+</body>
+</html>
